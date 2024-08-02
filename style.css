@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/img/og_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.after-answer-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6.4rem;
+  display: none;
+}
+.active {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+
+.after-btn {
+  font-size: 2rem;
+  padding: 2.4rem;
+  text-transform: uppercase;
+  border: none;
+  font-weight: 600;
+  border-radius: 1.4rem;
+  transition: all 0.3s ease-in-out;
+}
+.after-btn:hover {
+  cursor: pointer;
+}
+
+/* Correct answer */
+#correct-answer {
+  background-color: rgb(120, 168, 120);
+  transition: all 0.3s ease-in-out;
+}
+#next-question-btn {
+  background-color: #a1d795;
+  color: #040404;
+}
+#next-question-btn:hover {
+  background-color: rgb(3, 92, 12);
+}
+
+/* Incorrect answer */
+#incorrect-answer {
+  background-color: rgb(154, 46, 46);
+  color: #eaf82b;
+}
+#try-again-btn:hover {
+  background-color: #f6a6b9;
+}
+.heading--secondary {
+  font-size: 6.4rem;
+}
+
+/* Winning screen */
+#winning-screen {
+  background-color: #223a99;
+  color: white;
+}
+#winning-btn:hover {
+  cursor: pointer;
+  background-color: rgb(145, 156, 195);
+}
+/* Header Start */
+header h1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6.4rem;
+  text-transform: capitalize;
+  padding: 6rem 0;
+}
+/* Header End */
+
+/* Main Start*/
+.content-section {
+  display: flex;
+  flex-direction: column;
+  min-width: 60vw;
+  min-height: 50vh;
+  gap: 3.2rem;
+  background-color: #223a99;
+  padding: 4.8rem;
+  border-radius: 1.4rem;
+}
+
+/* Question */
+.question {
+  font-size: 3.2rem;
+  color: #fff;
+  text-align: center;
+}
+
+/* Answer */
+.answer-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  padding: 1.6rem 0;
+}
+
+.btn {
+  width: 100%;
+  padding: 1rem 3.2rem;
+  border-radius: 1.4rem;
+  font-size: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #f6a6b9;
+}
+.main-color {
+  color: rgb(107, 107, 0);
+  font-weight: 700;
+}
+/* Main end */
+
+#logo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+}
