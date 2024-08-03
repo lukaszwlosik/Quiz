@@ -45,24 +45,37 @@ const questions = [
 const mainSection = document.querySelector(".main-section");
 const correctAnswerSection = document.getElementById("correct-answer");
 const correctAnswerBtn = document.getElementById("next-question-btn");
-
 const incorrectAnswerSection = document.getElementById("incorrect-answer");
 const incorrectAnswerBtn = document.getElementById("try-again-btn");
 let i = 0;
-
 const winningSection = document.getElementById("winning-screen");
 const winningBtn = document.getElementById("winning-btn");
+
+let randomNumbersArray = [];
 // ZMIENNE I STAŁE Koniec
 
 window.addEventListener("DOMContentLoaded", function () {
-  displayQuestion(questions, i);
+  fillArray();
+  displayQuestion(questions, randomNumbersArray[i]);
 });
+
+const fillArray = function () {
+  let num;
+  randomNumbersArray = [];
+  for (let i = 0; i < questions.length; i++) {
+    do {
+      num = Math.floor(Math.random() * questions.length);
+    } while (randomNumbersArray.includes(num));
+    randomNumbersArray.push(num);
+  }
+};
 
 const answerTheQuestion = function (section, btn) {
   section.classList.add("active");
   btn.addEventListener("click", () => {
     section.classList.remove("active");
-    displayQuestion(questions, i);
+    console.log(section);
+    displayQuestion(questions, randomNumbersArray[i]);
   });
 };
 
@@ -116,21 +129,20 @@ let displayQuestion = function (item, index) {
         // console.log(`Poprawna odpowiedź`);
         i++;
         if (i < questions.length) {
-          // FIXME Żeby pytania były randomowo, a nie od pierwszego do ostatniego!
           // Fukcja wywołująca okienko poprawnej odpowiedzi
           answerTheQuestion(correctAnswerSection, correctAnswerBtn);
         } else {
-          // FIXME zrobić jakieś fajne okienko kończące grę
           i = 0;
           // Funkcja wywołująca okienko wygranej gry
+          fillArray();
           answerTheQuestion(winningSection, winningBtn);
         }
       }
       // Warunek dla błędnej odpowiedzi
       else {
-        // FIXME też później zrobić żeby randomowo pytania można było odtwarzać, a nie od początku!
         // console.log(`Błędna odpowiedź`);
         i = 0;
+        fillArray();
         answerTheQuestion(incorrectAnswerSection, incorrectAnswerBtn);
       }
     });
